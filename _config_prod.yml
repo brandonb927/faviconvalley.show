@@ -1,0 +1,19 @@
+# Routes
+url: http://faviconvalley.show
+
+debug: false
+
+# Publishing
+future: false
+show_drafts: false
+
+exclude: [
+  '.ruby-version',
+  '.editorconfig',
+  'README.md',
+  'Gulpfile.js',
+  'package.json',
+  'coffeelint.json',
+  'gulp',
+  'node_modules',
+  'build_dev']

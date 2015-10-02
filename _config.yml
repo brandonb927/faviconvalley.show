@@ -1,0 +1,63 @@
+encoding: utf-8
+language: en-us
+
+# Site Settings
+title: Favicon Valley Podcast
+author:
+  name: Brandon Brown
+  email: hello@faviconvalley.show
+description: > # ignore newlines in this value
+  A podcast exploring products, email, and the web hosted by Brandon Brown
+
+# Favicons
+favicons:
+  ico: /favicon.ico
+  png: /favicon.png
+  theme_color: '#222222'
+
+# Routes
+baseurl: '' # Use if your site is in a subdirectory, e.g. /blog/
+root: /
+permalink: /:title
+
+assets_images: /assets/images
+assets_scripts: /assets/scripts
+assets_styles: /assets/styles
+
+# Writing
+markdown: redcarpet
+
+# Build-stuff
+keep_files: [
+  'assets']
+
+# Pagination
+paginate: 5
+paginate_path: /page/:num
+
+defaults:
+  -
+    scope:
+      path: ''
+      type: posts
+    values:
+      layout: post
+
+# 3rd-party
+social:
+  twitter: faviconvalley
+  github: faviconvalley
+
+gravatar: https://en.gravatar.com/userimage/19053779/d3d0c395c9f19a796ccffd016f9349ae.png?size=512
+
+disqus:
+  shortname: faviconvalley
+
+google_analytics:
+  id: UA-68371901-1
+  domain: faviconvalley.show
+
+# Extras
+gems:
+  - jekyll-paginate
+  - jekyll-sitemap

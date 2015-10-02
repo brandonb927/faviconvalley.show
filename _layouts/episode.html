@@ -1,0 +1,37 @@
+---
+layout: base
+---
+
+<article class="posts-feed-item" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
+  <h2 class="post-title" itemprop="name headline">
+    {{ page.title }}
+  </h2>
+
+  <div class="post-content" itemprop="text">
+    {{ content }}
+  </div>
+
+  <div class="post-meta">
+    <div class="post-meta-left">
+      <p>
+        Posted by
+        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span itemprop="name">{{ site.author.name }}</span>
+        </span>
+        on <time datetime="{{ page.date | date_to_rfc822 }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>
+      </p>
+    </div>
+    <div class="post-meta-right">
+      <p>
+        {% if page.tags %}
+        Tagged with
+        <span class="post-meta-tags">
+          {% for tag in page.tags %}
+          <a href="/tag/{{ tag }}">{{ tag }}</a>
+          {% endfor %}
+        </span>
+        {% endif %}
+      </p>
+    </div>
+  </div>
+</article>
