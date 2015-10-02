@@ -20,6 +20,8 @@ exclude: [
   'Gulpfile.js',
   'package.json',
   'coffeelint.json',
+  'Gemfile',
+  'Gemfile.lock',
   'gulp',
   'node_modules',
   'build_prod']
