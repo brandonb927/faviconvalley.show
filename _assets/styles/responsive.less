@@ -9,6 +9,9 @@
 
 
 @media (max-width: @grid-breakpoint-medium-max) { // Everything up to desktop
+  body {
+    width: 90%
+  }
 
   .site-container {
     width: 92%;
@@ -20,6 +23,10 @@
     // Fix long links breaking out of boxes
     word-break: break-word;
     hyphens:    auto;
+  }
+
+  #mc-embedded-subscribe-form {
+    width: 90% !important;
   }
 
 }
