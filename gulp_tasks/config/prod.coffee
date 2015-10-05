@@ -65,8 +65,8 @@ baseProdConfig =
       src: "#{build}/**/*.html"
       dest: build
       options:
-        collapseWhitespace: true
-        conservativeCollapse: true
+        # gulp-minify-html options
+        loose: true
 
 prodConfig = _.merge baseProdConfig, baseConfig
 
