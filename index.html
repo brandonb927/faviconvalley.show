@@ -24,7 +24,8 @@ layout: base
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
             <span itemprop="name">{{ site.author.name }}</span>
           </span>
-          on <time datetime="{{ post.date | date_to_rfc822 }}" itemprop="datePublished">{{ post.date | date: "%b %-d, %Y" }}</time>
+          on
+          <time datetime="{{ post.date | date_to_rfc822 }}" itemprop="datePublished">{{ post.date | date: "%b %-d, %Y" }}</time>
         </p>
       </div>
       {% if post.tags %}
