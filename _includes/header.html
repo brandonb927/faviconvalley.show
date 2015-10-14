@@ -5,7 +5,11 @@
 
   <div class="site-header-title">
     <h1 itemprop="headline">
+      {% if page.url == '/' %}
+      {{ site.title }}
+      {% else %}
       <a href="/" title="{{ site.description }}">{{ site.title }}</a>
+      {% endif %}
     </h1>
   </div>
 
