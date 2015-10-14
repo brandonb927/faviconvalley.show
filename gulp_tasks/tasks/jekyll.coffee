@@ -11,8 +11,10 @@ gulp.task('jekyll-build:dev', (callback) ->
   notify('Compiling Jekyll for development')
 
   return cp.spawn(
-    'jekyll'
+    'bundle'
     [
+      'exec'
+      'jekyll'
       'build'
       '-f'
       "--source=#{configDev.src}"
@@ -20,16 +22,18 @@ gulp.task('jekyll-build:dev', (callback) ->
       "--config=#{configDev.config}"
     ]
     { stdio: 'inherit' }
-  ).on('close', callback)
+  )
+  .on('close', callback)
 )
 
 gulp.task('jekyll-build:prod', (callback) ->
   notify('Compiling Jekyll for production')
 
   return cp.spawn(
-    'jekyll'
+    'bundle'
     [
-      'build'
+      'exec'
+      'jekyll'
       '-f'
       "--source=#{configProd.src}"
       "--destination=#{configProd.dest}"
