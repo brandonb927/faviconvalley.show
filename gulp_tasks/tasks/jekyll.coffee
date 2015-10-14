@@ -34,6 +34,7 @@ gulp.task('jekyll-build:prod', (callback) ->
     [
       'exec'
       'jekyll'
+      'build'
       '-f'
       "--source=#{configProd.src}"
       "--destination=#{configProd.dest}"
