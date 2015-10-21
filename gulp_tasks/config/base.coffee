@@ -36,7 +36,7 @@ baseConfig.watch =
     "#{baseConfig.src.base}/_includes/*.html"
     "#{baseConfig.src.base}/_layouts/*.html"
     "#{baseConfig.src.base}/_pages/*"
-    "#{baseConfig.src.base}/_posts/*"
+    "#{baseConfig.src.base}/_episodes/*"
   ]
   styles: "#{baseConfig.src.assets}/styles/**/*.less"
   scripts: "#{baseConfig.src.assets}/scripts/**/*.{js,coffee}"

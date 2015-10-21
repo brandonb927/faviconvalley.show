@@ -35,23 +35,6 @@ baseDevConfig =
     ui:
       port: 9001
     open: false
-    notify:
-      styles: [
-        "padding: 12px;
-        font-family: sans-serif;
-        position: fixed;
-        font-size: 14px;
-        z-index: 10000;
-        left: 50%;
-        bottom: 0;
-        width: 200px;
-        margin: 0;
-        margin-left: -100px;
-        border-top-left-radius: 3px;
-        border-top-right-radius: 3px;
-        color: #fff;
-        text-align: center;
-        background-color: rgba(0, 0, 0, .65);"]
   delete:
     src: [
       build

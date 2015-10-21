@@ -24,6 +24,9 @@ assets_images: /assets/images
 assets_scripts: /assets/scripts
 assets_styles: /assets/styles
 
+# Episodes RSS feed
+episodes_rss_feed: http://simplecast.fm/podcasts/1442/rss
+
 # Writing
 markdown: redcarpet
 
@@ -32,16 +35,27 @@ keep_files: [
   'assets']
 
 # Pagination
-paginate: 5
-paginate_path: /page/:num
+# paginate: 5
+# paginate_path: /page/:num
 
 defaults:
   -
     scope:
       path: ''
-      type: posts
+      type: episodes
     values:
-      layout: post
+      layout: episode
+  # -
+  #   scope:
+  #     path: ''
+  #     type: posts
+  #   values:
+  #     layout: post
+
+collections:
+  episodes:
+    output: true
+    permalink: /episodes/:title
 
 # 3rd-party
 social:
@@ -59,5 +73,5 @@ google_analytics:
 
 # Extras
 gems:
-  - jekyll-paginate
   - jekyll-sitemap
+  - jekyll-redirect-from
