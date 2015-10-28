@@ -16,7 +16,6 @@ gulp.task('jekyll-build:dev', (callback) ->
       'exec'
       'jekyll'
       'build'
-      '-f'
       "--source=#{configDev.src}"
       "--destination=#{configDev.dest}"
       "--config=#{configDev.config}"
@@ -35,7 +34,6 @@ gulp.task('jekyll-build:prod', (callback) ->
       'exec'
       'jekyll'
       'build'
-      '-f'
       "--source=#{configProd.src}"
       "--destination=#{configProd.dest}"
       "--config=#{configProd.config}"

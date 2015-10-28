@@ -3,7 +3,7 @@ layout: base
 ---
 
 <div class="posts-feed">
-  {% for episode in site.episodes %}
+  {% for episode in site.episodes reversed %}
   <article class="posts-feed-item" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
     <h2 class="post-title" itemprop="name headline">
       <a href="{{ episode.url | prepend: site.baseurl }}">
