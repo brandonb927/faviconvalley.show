@@ -4,6 +4,7 @@ layout: base
 
 <div class="posts-feed">
   {% for episode in site.episodes reversed %}
+  {% if episode.draft != true %}
   <article class="posts-feed-item" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
     <h2 class="post-title" itemprop="name headline">
       <a href="{{ episode.url | prepend: site.baseurl }}">
@@ -21,5 +22,6 @@ layout: base
       {{ episode.content }}
     </div>
   </article>
+  {% endif %}
   {% endfor %}
 </div>
