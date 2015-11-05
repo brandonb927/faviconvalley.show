@@ -20,6 +20,11 @@
   <nav class="site-header-nav" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
     {% assign navurl = page.url | remove: 'index.html' %}
     <ul>
+      <li>
+        <a href="{{ site.itunes_url }}" title="Subscribe on iTunes">
+          Subscribe on iTunes
+        </a>
+      </li>
       {% assign site_pages = site.pages | sort: 'order' %}
       {% for page in site_pages %}
       {% if page.include_in_nav %}

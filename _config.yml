@@ -7,7 +7,7 @@ author:
   name: Brandon Brown
   email: hello@faviconvalley.show
 description: > # ignore newlines in this value
-  A podcast exploring products, email, and the web hosted by Brandon Brown
+  A podcast exploring products, email, and the web hosted by Brandon Brown.
 
 # Favicons
 favicons:
@@ -26,6 +26,7 @@ assets_styles: /assets/styles
 
 # Episodes RSS feed
 episodes_rss_feed: http://simplecast.fm/podcasts/1442/rss
+itunes_url: https://itunes.apple.com/ca/podcast/favicon-valley/id1051186842
 
 # Writing
 markdown: redcarpet
