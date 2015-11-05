@@ -193,10 +193,6 @@
     text-align: center;
   }
 
-  .iframe-gmap {
-    margin-bottom: 0;
-  }
-
   picture {
     display: block;
   }
@@ -272,18 +268,16 @@
   color: @gray-dark;
 }
 
-// // Fix Github gists
-// .highlight {
-//   margin: 0;
-//
-//   .line-data {
-//     .line-pre {
-//       color: inherit;
-//       box-shadow: none;
-//       text-shadow: none;
-//     }
-//   }
-// }
+// lazysizes
+.lazyload,
+.lazyloading {
+  opacity: 0;
+}
+
+.lazyloaded {
+  opacity: 1;
+  transition: opacity .3s;
+}
 
 // Mailchimp form - ugh hack...
 #mc_embed_signup { padding: 4rem 0 !important; }
