@@ -27,8 +27,17 @@
 {% include favicons.html %}
 
 <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="{{ site.episodes_rss_feed }}">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster+Two:400,400italic,700italic,700|Oxygen:400,300,700">
 <link rel="stylesheet" href="/assets/styles/site.css" inline>
-<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="{{ site.episodes_rss_feed }}">
+
+<!-- Mailchimp signup code -->
+<link rel="stylesheet"href="//cdn-images.mailchimp.com/embedcode/slim-081711.css">
+<style type="text/css">
+  #mc-embedded-subscribe-form{padding:0 !important; width:40%; margin:0 auto; text-align:center;}
+  #mc-embedded-subscribe-form label{text-align:center;}
+  #mce-EMAIL {width:100% !important; font-family: 'Helvetica', Arial, sans-serif;}
+  #mc-embedded-subscribe{width:100% !important;margin: 0 !important;}
+</style>
 
 {% include google_analytics.html %}
