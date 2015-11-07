@@ -17,13 +17,21 @@ buildConfigFilename = "#{baseConfig.jekyll.baseConfig},#{prodBuildConfigFilename
 
 # Config
 baseProdConfig =
-  deploy:
-    src: build
-    dest: build
+  copy:
+    images:
+      src: "#{srcAssets}/images/*"
+      dest: "#{buildAssets}/images"
   delete:
     src: [
       build
     ]
+  deploy:
+    src: build
+    dest: build
+  jekyll:
+    src: src
+    dest: build
+    config: buildConfigFilename
   styles:
     src: "#{srcAssets}/styles/site.less"
     dest: "#{buildAssets}/styles"
@@ -32,14 +40,6 @@ baseProdConfig =
       coffee: "#{srcAssets}/scripts/*.coffee"
       js: "#{srcAssets}/scripts/*.js"
     dest: "#{buildAssets}/scripts"
-  copy:
-    images:
-      src: "#{srcAssets}/images/*"
-      dest: "#{buildAssets}/images"
-  jekyll:
-    src: src
-    dest: build
-    config: buildConfigFilename
   optimize:
     styles:
       src: [

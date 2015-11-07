@@ -4,6 +4,8 @@ cp           = require('child_process')
 path         = require('path')
 gulp         = require('gulp')
 awspublish   = require('gulp-awspublish')
+inlinesource = require('gulp-inline-source')
+duration     = require('gulp-duration')
 gutil        = require('gulp-util')
 plumber      = require('gulp-plumber')
 runSequence  = require('run-sequence')
@@ -13,7 +15,7 @@ scriptConfig = require('../config/prod').scripts
 deployConfig = require('../config/prod').deploy
 errorHandler = require('../utils/errorHandler')
 
-awsConfig        = JSON.parse(fs.readFileSync("#{process.env.HOME}/.aws.json"));
+awsConfig = JSON.parse(fs.readFileSync("#{process.env.HOME}/.aws.json"))
 awsConfig.bucket = deployConfig.s3.bucket
 awsConfig.region = 'us-east-1'
 
@@ -24,13 +26,8 @@ s3Config =
   params:
     Bucket: awsConfig.bucket
 
+deployHtmlPath = "#{deployConfig.src}/**/*.html"
 
-gulp.task('rev', () ->
-  return gulp.src("#{deployConfig.src}/**/*.html")
-    .pipe(plumber(errorHandler:errorHandler))
-    .pipe(rev(revOpts))
-    .pipe(gulp.dest(deployConfig.dest))
-)
 
 # Upload a published build to the interwebs
 gulp.task('surge-deploy', (callback) ->
@@ -54,7 +51,18 @@ gulp.task('s3-deploy', () ->
   return gulp.src(imagesConfig.src)
     .pipe(publisher.publish())
     .pipe(publisher.cache())
+    .pipe(duration('Uploading images to S3'))
     .pipe(awspublish.reporter())
+)
+
+gulp.task('inlinesource', () ->
+  options =
+    compress: false
+
+  return gulp.src(deployHtmlPath)
+      .pipe(inlinesource(options))
+      .pipe(duration('Inlining styles and scripts'))
+      .pipe(gulp.dest(deployConfig.dest))
 )
 
 gulp.task('deploy', (callback) ->
@@ -65,6 +73,7 @@ gulp.task('deploy', (callback) ->
         'optimize:scripts'
         'optimize:styles'
       ]
+      'inlinesource'
       'optimize:html'
       callback
     )
@@ -75,6 +84,7 @@ gulp.task('deploy', (callback) ->
         'optimize:scripts'
         'optimize:styles'
       ]
+      'inlinesource'
       'optimize:html'
       'surge-deploy'
       # 's3-deploy'
