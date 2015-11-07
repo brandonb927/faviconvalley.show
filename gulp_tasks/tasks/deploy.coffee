@@ -87,7 +87,7 @@ gulp.task('deploy', (callback) ->
       'inlinesource'
       'optimize:html'
       'surge-deploy'
-      # 's3-deploy'
+      's3-deploy'
       callback
     )
 )
