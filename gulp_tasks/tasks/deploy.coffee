@@ -25,6 +25,8 @@ s3Config =
   region: awsConfig.region
   params:
     Bucket: awsConfig.bucket
+  headers:
+    'Cache-Control': 'max-age=2592000, no-transform, public'
 
 deployHtmlPath = "#{deployConfig.src}/**/*.html"
 
@@ -49,7 +51,7 @@ gulp.task('s3-deploy', () ->
   publisher = awspublish.create(s3Config)
 
   return gulp.src(imagesConfig.src)
-    .pipe(publisher.publish())
+    .pipe(publisher.publish(s3Config.headers))
     .pipe(publisher.cache())
     .pipe(duration('Uploading images to S3'))
     .pipe(awspublish.reporter())
