@@ -279,11 +279,15 @@
 
 // Contact page
 .page-contact {
-
+  
 }
 
 // Hack to hide div if not the current target
 .show-on-target:not(:target) {
+  display: none;
+}
+
+.show-on-target:target + .form {
   display: none;
 }
 
