@@ -8,6 +8,7 @@
 
 // Base modules
 @import 'buttons.less';
+@import 'forms.less';
 @import 'base.less';
 @import 'errors.less';
 
@@ -58,6 +59,12 @@
     text-decoration: none;
     background: @gray-lighter;
   }
+}
+
+.site-header-subscribe {
+  padding-top: 6rem;
+  padding-right: 8rem;
+  padding-left: 8rem;
 }
 
 .site-header-avatar {
@@ -270,6 +277,16 @@
 
 .posts-pagination-none {
   color: @gray-dark;
+}
+
+// Contact page
+.page-contact {
+
+}
+
+// Hack to hide div if not the current target
+.show-on-target:not(:target) {
+  display: none;
 }
 
 // lazysizes

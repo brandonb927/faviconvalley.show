@@ -1,6 +1,7 @@
 <header class="site-header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
   <div class="site-header-avatar">
-    <img class="site-header-avatar-img" src="{{ '/avatar256.png' | prepend: site.assets_images }}">
+    <img class="site-header-avatar-img"
+        src="{{ '/avatar256.png' | prepend: site.assets_images }}">
   </div>
 
   <div class="site-header-title">
@@ -41,24 +42,7 @@
     </ul>
   </nav>
 
-  <!-- Begin MailChimp Signup Form -->
-  <div id="mc_embed_signup">
-    <form action="//brandonb.us9.list-manage.com/subscribe/post?u=92f1e767b3d52c18390a47629&amp;id=817517feaf"
-          method="post"
-          id="mc-embedded-subscribe-form"
-          name="mc-embedded-subscribe-form"
-          class="validate"
-          target="_blank"
-          novalidate>
-        <div id="mc_embed_signup_scroll">
-    	<label for="mce-EMAIL">Subscribe &amp; receive podcast updates</label>
-    	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
-        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-        <div style="position: absolute; left: -5000px;">
-          <input type="text" name="b_92f1e767b3d52c18390a47629_817517feaf" tabindex="-1" value="">
-        </div>
-        <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
-    </form>
+  <div class="site-header-subscribe">
+    {% include mailchimp_embed.html %}
   </div>
-  <!--End mc_embed_signup-->
 </header>

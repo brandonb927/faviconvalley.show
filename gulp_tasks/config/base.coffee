@@ -38,9 +38,9 @@ baseConfig.watch =
     "#{baseConfig.src.base}/_pages/*"
     "#{baseConfig.src.base}/_episodes/*"
   ]
-  styles: "#{baseConfig.src.assets}/styles/**/*.less"
-  scripts: "#{baseConfig.src.assets}/scripts/**/*.{js,coffee}"
-  images: "#{baseConfig.src.assets}/images/**/*"
+  styles: "#{baseConfig.src.assets}/styles/*.less"
+  scripts: "#{baseConfig.src.assets}/scripts/*.{js,coffee}"
+  images: "#{baseConfig.src.assets}/images/*"
 
 baseConfig.scripts =
   sitePack: 'site-pack.js'
