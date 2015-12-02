@@ -73,4 +73,3 @@ google_analytics:
 # Extras
 gems:
   - jekyll-sitemap
-  - jekyll-redirect-from
