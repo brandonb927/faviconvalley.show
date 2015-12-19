@@ -1,0 +1,45 @@
+---
+layout: base
+title: Interview Booking
+---
+
+<div id="bookingjs">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="http://cdn.timekit.io/booking-js/v1/booking.min.js" defer></script>
+  <script>
+    var widget = new TimekitBooking()
+    widget.init({
+      name: 'Favicon Valley Podcast',
+      email: 'brandon@brandonb.ca',
+      apiToken: 'rITYfhMzOobFzGnPNWlj22yf5kCJKm5B',
+      calendar: 'e415fd66-7b19-4c4e-b71b-8852cf54d5a9',
+      timekitFindTime: {
+        filters: {
+          and: [
+            {
+              business_hours: { }
+            },
+            {
+              exclude_weekend: { }
+            }
+          ],
+          or: [
+            {
+              specific_time: {
+                start: '00',
+                end: '12'
+              }
+            },
+            {
+              specific_time: {
+                start: '13',
+                end: '24'
+              }
+            }
+          ]
+        }
+      },
+      avatar: 'https://d1a5a04sfj6djm.cloudfront.net/avatar256.png'
+    })
+  </script>
+</div>
