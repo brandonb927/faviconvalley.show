@@ -16,6 +16,8 @@ favicons:
   png: /favicon.png
   theme_color: '#222222'
 
+logo_url: https://d1a5a04sfj6djm.cloudfront.net/avatar256.png
+
 # Routes
 baseurl: '' # Use if your site is in a subdirectory, e.g. /blog/
 root: /
