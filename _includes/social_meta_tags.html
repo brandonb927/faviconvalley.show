@@ -13,7 +13,7 @@
 {% if page.description %}
 <meta content="{{ page.description }}" property="og:description">
 {% else %}
-<meta content="{{ site.description | strip_html }}" property="og:description">
+<meta content="{{ site.meta_description }}" property="og:description">
 {% endif %}
 {% if page.url %}
 <meta content="{{ page.url | prepend: site.baseurl | prepend: site.url }}" property="og:url">
@@ -22,7 +22,11 @@
 <meta content="{{ page.date | date_to_xmlschema }}" property="article:published_time">
 <meta content="{{ site.url }}/about" property="article:author">
 {% endif %}
-<meta content="{{ site.favicon.png }}" property="og:image">
+{% if post.share_image %}
+<meta content="{{ post.share_image }}" property="og:image">
+{% else %}
+<meta content="{{ '/avatar256.jpg' | prepend: site.assets_images }}" property="og:image">
+{% endif %}
 
 <!-- Twitter Cards  -->
 <meta name="twitter:card" content="summary">
@@ -41,6 +45,10 @@
 {% if page.description %}
 <meta name="twitter:description" content="{{ page.description }}">
 {% else %}
-<meta name="twitter:description" content="{{ site.description | strip_html }}">
+<meta name="twitter:description" content="{{ site.meta_description }}">
 {% endif %}
-<meta name="twitter:image:src" content="{{ site.favicon.png }}">
+{% if post.share_image %}
+<meta name="twitter:image:src" content="{{ post.share_image }}">
+{% else %}
+<meta name="twitter:image:src" content="{{ '/avatar256.jpg' | prepend: site.assets_images }}">
+{% endif %}
