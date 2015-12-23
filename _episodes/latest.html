@@ -1,0 +1,22 @@
+---
+# hack the frontmatter for this page, redirect to latest episode
+---
+
+{% assign episodes = site.episodes | reverse %}
+{% assign latest_episode = episodes[1] %}
+{% assign latest_url = latest_episode.url | prepend: site.url %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ latest_episode.title }}</title>
+  <link rel="canonical" href="{{ latest_url }}" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta http-equiv="refresh" content="0;url={{ latest_url }}" />
+</head>
+<body>
+  <h1>Redirecting...</h1>
+  <a href="{{ latest_url }}">Click here if you are not redirected.<a>
+  <script>location='{{ latest_url }}'</script>
+</body>
+</html>
