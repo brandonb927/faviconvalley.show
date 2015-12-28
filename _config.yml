@@ -12,8 +12,8 @@ meta_description: Exploring products, email, and the web.
 
 # Favicons
 favicon:
-  ico: favicon.ico
-  png: favicon.png
+  ico: /favicon.ico
+  png: /favicon.png
   theme_color: '#222222'
 
 logo_url: https://d1a5a04sfj6djm.cloudfront.net/avatar256.png
