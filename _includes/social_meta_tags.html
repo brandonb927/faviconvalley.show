@@ -22,14 +22,21 @@
 <meta content="{{ page.date | date_to_xmlschema }}" property="article:published_time">
 <meta content="{{ site.url }}/about" property="article:author">
 {% endif %}
-{% if post.share_image %}
-<meta content="{{ post.share_image }}" property="og:image">
+{% if page.share_image %}
+<meta content="{{ page.share_image }}" property="og:image">
 {% else %}
 <meta content="{{ site.logo_url }}" property="og:image">
 {% endif %}
 
 <!-- Twitter Cards  -->
+{% if page.layout == 'episode' %}
+<meta name="twitter:card" content="player">
+<meta name="twitter:player" content="{{ page.audio_url }}">
+<meta name="twitter:player:height" content="240">
+<meta name="twitter:player:width" content="320">
+{% else %}
 <meta name="twitter:card" content="summary">
+{% endif %}
 {% if site.twitter.username %}
 <meta name="twitter:site" content="@{{ site.twitter.username }}">
 <meta name="twitter:creator" content="@{{ site.twitter.username }}">
