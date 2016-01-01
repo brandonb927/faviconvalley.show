@@ -99,8 +99,12 @@ blockquote {
   padding: 2rem 4rem;
   background: @gray-lightest;
   border-left: solid .6rem @gray-lighter;
+  font-style: italic;
+  font-weight: 500;
 
   .bq-cite {
+    display: inline-block;
+    width: 100%;
     font-style: italic;
   }
 
@@ -109,9 +113,12 @@ blockquote {
     padding-left: 2rem;
   }
 
-  pre {
-    margin: 2rem -4rem;
-    padding: 2rem 4rem;
+  .bq-cite-right {
+    text-align: right;
+  }
+
+  p {
+    display: inline;
   }
 }
 

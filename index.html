@@ -2,26 +2,18 @@
 layout: base
 ---
 
+{% assign episodes = site.episodes | reverse %}
+{% assign latest_episode = episodes[1] %}
+
 <div class="posts-feed">
-  {% for episode in site.episodes reversed %}
-  {% if episode.draft != true %}
-  <article class="posts-feed-item" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
-    <h2 class="post-title" itemprop="name headline">
-      <a href="{{ episode.url | prepend: site.baseurl }}">
-        {{ episode.title }}
-      </a>
-    </h2>
-
-    <div class="post-meta">
-      <p>
-        Released on <time datetime="{{ episode.date | date_to_rfc822 }}" itemprop="datePublished">{{ episode.date | date: "%b %-d, %Y" }}</time>
-      </p>
-    </div>
-
-    <div class="post-content" itemprop="text">
-      {{ episode.content }}
-    </div>
-  </article>
-  {% endif %}
+  {% for episode in episodes %}
+    {% unless episode.url contains "latest" %}
+      {% if episode.draft != true %}
+        {% if episode.url == latest_episode.url %}
+          {% assign is_episode_list_item = true %}
+        {% endif %}
+        {% include episode.html %}
+      {% endif %}
+    {% endunless %}
   {% endfor %}
 </div>

@@ -2,18 +2,4 @@
 layout: base
 ---
 
-<article class="posts-feed-item" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
-  <h2 class="post-title" itemprop="name headline">
-    {{ page.title }}
-  </h2>
-
-  <div class="post-meta">
-    <p>
-      Released on <time datetime="{{ page.date | date_to_rfc822 }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>
-    </p>
-  </div>
-
-  <div class="post-content" itemprop="text">
-    {{ content }}
-  </div>
-</article>
+{% include episode.html %}

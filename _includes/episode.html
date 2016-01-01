@@ -1,0 +1,60 @@
+{% assign episode = page %}
+{% assign audio_url = {{ episode.episode_id | prepend: 'https://audio.simplecast.fm/' | append: '.mp3' }} %}
+
+<article class="posts-feed-item" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
+  <h2 class="post-title" itemprop="name headline">
+    {% if is_episode_list_item != true %}
+      {{ episode.title }}
+    {% else %}
+    <a href="{{ episode.url | prepend: site.baseurl }}">
+      {{ episode.title }}
+    </a>
+    {% endif %}
+  </h2>
+
+  <div class="post-meta">
+    <p>
+      Released on <time datetime="{{ episode.date | date_to_rfc822 }}" itemprop="datePublished">{{ episode.date | date: "%b %-d, %Y" }}</time>
+    </p>
+  </div>
+
+  <div class="post-content" itemprop="text">
+    {% if episode.episode_id && is_episode_list_item != true %}
+      <div class="post-media">
+        <iframe src="https://simplecast.fm/e/{{ episode.episode_id }}?style=dark" height="36px" width="100%" frameborder="0" scrolling="no" seamless></iframe>
+      </div>
+    {% endif %}
+
+    {{ episode.content }}
+
+    {% if episode.show_notes && is_episode_list_item != true %}
+      <div class="post-shownotes">
+        <p>Show Notes:</p>
+        <ul>
+          {% for note in episode.show_notes %}
+            <li>
+                <a href="{{ note.url }}?ref={{site.domain}}">{{ note.text }}</a> {% if note.time %}({{ note.time }}){% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
+    {% if is_episode_list_item != true %}
+    <span class="text-small">
+      <br />
+      <p>
+        Direct episode download available here: <a href="{{ audio_url }}">{{ audio_url }}</a>
+      </p>
+      <p>
+        Show intro/outro music provided by <a href="http://freemusicarchive.org/music/Professor_Kliq/Bust_This_Bust_That/Bust_This_Bust_That">Free Music Archive</a>
+        <br />
+        Interview intro/outro music provided by <a href="http://freemusicarchive.org/music/Podington_Bear/Upbeat/GoodTimes_1375">Free Music Archive</a>
+      </p>
+      <p>
+        The show is always looking for sponsors for future episodes, so reach out on Twitter (<a href="https://twitter.com/faviconvalley">@faviconvalley</a> or <a href="mailto:hello@faviconvalley.show?subject=Sponsorship+Opportunity">email</a>) if you would like to know more about this exciting opportunity!
+      </p>
+    </span>
+    {% endif %}
+  </div>
+</article>

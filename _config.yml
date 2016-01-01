@@ -3,6 +3,7 @@ language: en-us
 
 # Site Settings
 title: Favicon Valley Podcast
+domain: faviconvalley.show
 author:
   name: Brandon Brown
   email: hello@faviconvalley.show

@@ -1,7 +1,6 @@
 ---
 # hack the frontmatter for this page, redirect to latest episode
 ---
-
 {% assign episodes = site.episodes | reverse %}
 {% assign latest_episode = episodes[1] %}
 {% assign latest_url = latest_episode.url | prepend: site.url %}
