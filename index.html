@@ -8,10 +8,12 @@ layout: base
 <div class="posts-feed">
   {% for episode in episodes %}
     {% unless episode.url contains "latest" %}
+      {% assign hide_episode_details = false %}
+      {% if episode.url != latest_episode.url %}
+        {% assign hide_episode_details = true %}
+      {% endif %}
+
       {% if episode.draft != true %}
-        {% if episode.url == latest_episode.url %}
-          {% assign is_episode_list_item = true %}
-        {% endif %}
         {% include episode.html %}
       {% endif %}
     {% endunless %}

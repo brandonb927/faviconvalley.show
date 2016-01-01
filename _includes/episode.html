@@ -4,7 +4,7 @@
 
 <article class="posts-feed-item" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
   <h2 class="post-title" itemprop="name headline">
-    {% if is_episode_list_item != true %}
+    {% if hide_episode_details != true %}
       {{ episode.title }}
     {% else %}
     <a href="{{ episode.url | prepend: site.baseurl }}">
@@ -20,7 +20,7 @@
   </div>
 
   <div class="post-content" itemprop="text">
-    {% if episode.episode_id && is_episode_list_item != true %}
+    {% if episode.episode_id and hide_episode_details != true %}
       <div class="post-media">
         <iframe src="https://simplecast.fm/e/{{ episode.episode_id }}?style=dark" height="36px" width="100%" frameborder="0" scrolling="no" seamless></iframe>
       </div>
@@ -28,7 +28,7 @@
 
     {{ episode.content }}
 
-    {% if episode.show_notes && is_episode_list_item != true %}
+    {% if episode.show_notes and hide_episode_details != true %}
       <div class="post-shownotes">
         <p>Show Notes:</p>
         <ul>
@@ -41,7 +41,7 @@
       </div>
     {% endif %}
 
-    {% if is_episode_list_item != true %}
+    {% if hide_episode_details != true %}
     <span class="text-small">
       <br />
       <p>
