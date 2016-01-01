@@ -1,5 +1,6 @@
 {% assign episode = page %}
-{% assign audio_url = {{ episode.episode_id | prepend: 'https://audio.simplecast.fm/' | append: '.mp3' }} %}
+
+{% capture audio_url %}{{ episode.episode_id | prepend: 'https://audio.simplecast.fm/' | append: '.mp3' }}{% endcapture %}
 
 <article class="posts-feed-item" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
   <h2 class="post-title" itemprop="name headline">
