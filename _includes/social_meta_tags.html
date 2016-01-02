@@ -30,8 +30,9 @@
 
 <!-- Twitter Cards  -->
 {% if page.layout == 'episode' %}
+{% capture audio_url %}{{ page.episode_id | prepend: 'https://audio.simplecast.fm/' | append: '.mp3' }}{% endcapture %}
 <meta name="twitter:card" content="player">
-<meta name="twitter:player" content="{{ page.audio_url }}">
+<meta name="twitter:player" content="{{ audio_url }}">
 <meta name="twitter:player:height" content="240">
 <meta name="twitter:player:width" content="320">
 {% else %}
