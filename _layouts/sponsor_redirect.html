@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+    <link rel="canonical" href="{{ page.sponsor_redirect }}" />
+  </head>
+  <body>
+    <pre>
+8""""                                    88   8                                 8""""8
+8     eeeee ee   e e  eeee eeeee eeeee   88   8 eeeee e     e     eeee e    e   8    8 eeeee eeeee eeee eeeee eeeee eeeee
+8eeee 8   8 88   8 8  8  8 8  88 8   8   88  e8 8   8 8     8     8    8    8   8eeee8 8  88 8   8 8  8 8   8 8   "   8
+88    8eee8 88  e8 8e 8e   8   8 8e  8   "8  8  8eee8 8e    8e    8eee 8eeee8   88     8   8 8e  8 8e   8eee8 8eeee   8e
+88    88  8  8  8  88 88   8   8 88  8    8  8  88  8 88    88    88     88     88     8   8 88  8 88   88  8    88   88
+88    88  8  8ee8  88 88e8 8eee8 88  8    8ee8  88  8 88eee 88eee 88ee   88     88     8eee8 88ee8 88e8 88  8 8ee88   88
+    </pre>
+    <p>
+      Thank you for helping the show. This page will redirect in <span id="timer"></span> seconds. <a href="{{ page.sponsor_redirect }}">Click here if you are not redirected.<a>
+    </p>
+    <script>
+      var count = 8;
+      var counter = setInterval(timer, 1000); //1000 will  run it every 1 second
+
+      function timer() {
+        count = count - 1;
+        if (count <= 0) {
+           return clearInterval(counter);
+        }
+        document.getElementById("timer").innerHTML = count;
+      }
+
+      window.setTimeout(function(){
+        window.location = '{{ page.sponsor_redirect }}}';
+      }, count * 1000);
+    </script>
+  </body>
+</html>

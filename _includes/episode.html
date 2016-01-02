@@ -1,4 +1,5 @@
 {% assign episode = page %}
+{% assign sponsors = site.data.sponsors %}
 
 {% capture audio_url %}{{ episode.episode_id | prepend: 'https://audio.simplecast.fm/' | append: '.mp3' }}{% endcapture %}
 
@@ -24,6 +25,21 @@
       <div class="post-media">
         <iframe src="https://simplecast.fm/e/{{ episode.episode_id }}?style=dark" height="36px" width="100%" frameborder="0" scrolling="no" seamless></iframe>
       </div>
+    {% endif %}
+
+    {% if episode.sponsors %}
+      {% for sponsor in sponsors %}
+        {% for ep_sponsor in episode.sponsors %}
+          {% if ep_sponsor == sponsor.type %}
+            <div class="post-sponsor">
+              <a href="{{ sponsor.url }}" target="_blank">
+                <h4 class="post-sponsor-title">This episode is brought to you by:&nbsp;{{ sponsor.title }}</h4>
+                <img src="{{ sponsor.image }}" class="post-sponsor-image" />
+              </a>
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
     {% endif %}
 
     {{ episode.content }}
