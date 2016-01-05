@@ -1,22 +1,34 @@
+{% if page.path contains '_episodes' %}
 {% assign episode = page %}
+{% assign hide_link_to_episode = true %}
+{% endif %}
 {% assign sponsors = site.data.sponsors %}
 
 {% capture audio_url %}{{ episode.episode_id | prepend: 'https://audio.simplecast.fm/' | append: '.mp3' }}{% endcapture %}
 
 <article class="posts-feed-item" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
   <h2 class="post-title" itemprop="name headline">
-    {% if hide_episode_details != true %}
+    {% if hide_link_to_episode == true %}
       {{ episode.title }}
     {% else %}
-    <a href="{{ episode.url | prepend: site.baseurl }}">
+    <a href="{{ episode.url | prepend: site.baseurl | prepend: site.url }}">
       {{ episode.title }}
     </a>
     {% endif %}
   </h2>
 
   <div class="post-meta">
-    <p>
+    <p class="post-meta-left">
       Released on <time datetime="{{ episode.date | date_to_rfc822 }}" itemprop="datePublished">{{ episode.date | date: "%b %-d, %Y" }}</time>
+    </p>
+
+    <p class="post-meta-right">
+      <a href="https://twitter.com/share?url={{ episode.url | prepend: site.baseurl | prepend: site.url | cgi_escape }}&text={{ episode.description | xml_escape }}"
+          class="twitter-share-button"{count}
+          data-via="faviconvalley"
+          data-size="large"
+          data-hashtags="podcast"
+          data-dnt="true">Tweet this episode</a>
     </p>
   </div>
 

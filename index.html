@@ -13,6 +13,8 @@ layout: base
         {% assign hide_episode_details = true %}
       {% endif %}
 
+      {% assign hide_link_to_episode = false %}
+
       {% if episode.draft != true %}
         {% include episode.html %}
       {% endif %}
