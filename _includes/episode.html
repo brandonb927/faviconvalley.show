@@ -1,8 +1,9 @@
-{% if page.path contains '_episodes' %}
-{% assign episode = page %}
-{% assign hide_link_to_episode = true %}
-{% endif %}
 {% assign sponsors = site.data.sponsors %}
+
+{% if page.path contains '_episodes' %}
+{% assign hide_link_to_episode = true %}
+{% assign episode = page %}
+{% endif %}
 
 {% capture audio_url %}{{ episode.episode_id | prepend: 'https://audio.simplecast.fm/' | append: '.mp3' }}{% endcapture %}
 
@@ -23,8 +24,10 @@
     </p>
 
     <p class="post-meta-right">
-      <a href="https://twitter.com/share?url={{ episode.url | prepend: site.baseurl | prepend: site.url | cgi_escape }}&text={{ episode.description | xml_escape }}"
+      <a href="https://twitter.com/share"
           class="twitter-share-button"{count}
+          data-url="{{ episode.url | prepend: site.baseurl | prepend: site.url }}"
+          data-text="{{ episode.title | truncate: 90 | xml_escape }}"
           data-via="faviconvalley"
           data-size="large"
           data-hashtags="podcast"
