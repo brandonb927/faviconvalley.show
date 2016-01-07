@@ -48,7 +48,7 @@
           {% if ep_sponsor == sponsor.type %}
             <div class="post-sponsor">
               <a href="{{ sponsor.url }}" target="_blank">
-                <h4 class="post-sponsor-title">{{ sponsor.title }}</h4>
+                <h3 class="post-sponsor-title">{{ sponsor.title }}</h3>
                 <img src="{{ sponsor.type | prepend: '/sponsors/' | prepend: site.assets_images | append: '.png' }}" class="post-sponsor-image" />
               </a>
               <span class="post-sponsor-attribution">This episode brought to you by</span>
