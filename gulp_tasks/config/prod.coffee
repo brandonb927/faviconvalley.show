@@ -19,7 +19,7 @@ buildConfigFilename = "#{baseConfig.jekyll.baseConfig},#{prodBuildConfigFilename
 baseProdConfig =
   copy:
     images:
-      src: "#{srcAssets}/images/*"
+      src: "#{srcAssets}/images/**/*"
       dest: "#{buildAssets}/images"
   delete:
     src: [
@@ -55,7 +55,7 @@ baseProdConfig =
       dest: "#{buildAssets}/scripts"
       options: {}
     images:
-      src: "#{srcAssets}/images/*"
+      src: "#{srcAssets}/images/**/*"
       dest: "#{srcAssets}/images"
       options:
         optimizationLevel: 3
