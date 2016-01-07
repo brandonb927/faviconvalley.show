@@ -35,7 +35,7 @@
     </p>
   </div>
 
-  <div class="post-content" itemprop="text">
+  <div class="post-precontent">
     {% if episode.episode_id and hide_episode_details != true %}
       <div class="post-media">
         <iframe src="https://simplecast.fm/e/{{ episode.episode_id }}?style=dark" height="36px" width="100%" frameborder="0" scrolling="no" seamless></iframe>
@@ -48,15 +48,18 @@
           {% if ep_sponsor == sponsor.type %}
             <div class="post-sponsor">
               <a href="{{ sponsor.url }}" target="_blank">
-                <h4 class="post-sponsor-title">This episode is brought to you by:&nbsp;{{ sponsor.title }}</h4>
-                <img src="{{ sponsor.image }}" class="post-sponsor-image" />
+                <h4 class="post-sponsor-title">{{ sponsor.title }}</h4>
+                <img src="{{ sponsor.type | prepend: '/sponsors/' | prepend: site.assets_images | append: '.png' }}" class="post-sponsor-image" />
               </a>
+              <span class="post-sponsor-attribution">This episode brought to you by</span>
             </div>
           {% endif %}
         {% endfor %}
       {% endfor %}
     {% endif %}
+  </div>
 
+  <div class="post-content" itemprop="text">
     {{ episode.content }}
 
     {% if episode.show_notes and hide_episode_details != true %}

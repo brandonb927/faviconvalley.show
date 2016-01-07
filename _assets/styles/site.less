@@ -238,6 +238,10 @@
   float: right;
 }
 
+.post-precontent {
+  // Nothing here yet
+}
+
 .post-content {
   margin-bottom: 4rem;
 
@@ -270,8 +274,9 @@
 }
 
 .post-sponsor {
+  position: relative;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 4rem;
   max-width: 54rem;
   margin-bottom: 2rem;
   border: solid 1px @gray-light;
@@ -284,7 +289,17 @@
 }
 
 .post-sponsor-image {
-  width: 40rem;
+  max-width: 30rem;
+}
+
+.post-sponsor-attribution {
+  border-bottom-right-radius: .5rem;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: .6rem;
+  font-size: 1rem;
+  background: @gray-lightest;
 }
 
 // Contact page
