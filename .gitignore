@@ -7,5 +7,6 @@ build_prod
 _assets/bower_components
 _assets/images
 
+.well-known
 .jekyll-metadata
 .awspublish-faviconvalley-show-images
