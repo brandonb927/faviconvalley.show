@@ -21,6 +21,8 @@ baseProdConfig =
     images:
       src: "#{srcAssets}/images/**/*"
       dest: "#{buildAssets}/images"
+    letsencrypt:
+      dest: "#{build}/.well-known"
   delete:
     src: [
       build

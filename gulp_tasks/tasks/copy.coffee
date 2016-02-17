@@ -15,9 +15,21 @@ gulp.task('copy:images:prod', () ->
     .pipe(gulp.dest(copyConfigProd.images.dest))
 )
 
+# Copy letsencrypt verification folder
+gulp.task('copy:letsencrypt:dev', () ->
+  return gulp.src(copyConfigDev.letsencrypt.src)
+    .pipe(gulp.dest(copyConfigDev.letsencrypt.dest))
+)
+
+gulp.task('copy:letsencrypt:prod', () ->
+  return gulp.src(copyConfigProd.letsencrypt.src)
+    .pipe(gulp.dest(copyConfigProd.letsencrypt.dest))
+)
+
 gulp.task('copy:dev', (callback) ->
   runSequence(
     'copy:images:dev'
+    'copy:letsencrypt:dev'
     callback
   )
 )
@@ -25,6 +37,7 @@ gulp.task('copy:dev', (callback) ->
 gulp.task('copy:prod', (callback) ->
   runSequence(
     'copy:images:prod'
+    'copy:letsencrypt:prod'
     callback
   )
 )

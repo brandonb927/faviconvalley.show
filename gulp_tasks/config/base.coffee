@@ -13,6 +13,9 @@ baseConfig =
       bucket: 'faviconvalley-show-images'
   jekyll:
     baseConfig: path.resolve(base, "_config.yml")
+  copy:
+    letsencrypt:
+      src: "#{path.resolve(base, ".well-known")}/**/*"
   styles:
     autoprefixer:
       cascade: true
