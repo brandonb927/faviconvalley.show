@@ -24,7 +24,7 @@ baseProdConfig =
     letsencrypt:
       dest: "#{build}/.well-known"
     surgeignore:
-      dest: "#{build}/.surgeignore"
+      dest: build
   delete:
     src: [
       build

@@ -54,7 +54,7 @@ baseDevConfig =
     letsencrypt:
       dest: "#{build}/.well-known"
     surgeignore:
-      dest: "#{build}/.surgeignore"
+      dest: build
   jekyll:
     src: src
     dest: build
