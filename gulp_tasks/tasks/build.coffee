@@ -10,6 +10,7 @@ gulp.task('build:dev', (callback) ->
       'styles:dev'
       'scripts:dev'
       'copy:images:dev'
+      'copy:surgeignore:dev'
       'copy:letsencrypt:dev'
     ]
     callback
@@ -25,6 +26,7 @@ gulp.task('build:prod', (callback) ->
       'styles:prod'
       'scripts:prod'
       'copy:images:prod'
+      'copy:surgeignore:prod'
       'copy:letsencrypt:prod'
     ]
     callback

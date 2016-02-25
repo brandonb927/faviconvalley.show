@@ -26,9 +26,21 @@ gulp.task('copy:letsencrypt:prod', () ->
     .pipe(gulp.dest(copyConfigProd.letsencrypt.dest))
 )
 
+# Copy surgeignore file
+gulp.task('copy:surgeignore:dev', () ->
+  return gulp.src(copyConfigDev.surgeignore.src)
+    .pipe(gulp.dest(copyConfigDev.surgeignore.dest))
+)
+
+gulp.task('copy:surgeignore:prod', () ->
+  return gulp.src(copyConfigProd.surgeignore.src)
+    .pipe(gulp.dest(copyConfigProd.surgeignore.dest))
+)
+
 gulp.task('copy:dev', (callback) ->
   runSequence(
     'copy:images:dev'
+    'copy:surgeignore:prod'
     'copy:letsencrypt:dev'
     callback
   )
@@ -37,6 +49,7 @@ gulp.task('copy:dev', (callback) ->
 gulp.task('copy:prod', (callback) ->
   runSequence(
     'copy:images:prod'
+    'copy:surgeignore:prod'
     'copy:letsencrypt:prod'
     callback
   )

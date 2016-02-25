@@ -53,6 +53,8 @@ baseDevConfig =
       dest: "#{buildAssets}/images"
     letsencrypt:
       dest: "#{build}/.well-known"
+    surgeignore:
+      dest: "#{build}/.surgeignore"
   jekyll:
     src: src
     dest: build

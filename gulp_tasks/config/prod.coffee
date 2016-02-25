@@ -23,6 +23,8 @@ baseProdConfig =
       dest: "#{buildAssets}/images"
     letsencrypt:
       dest: "#{build}/.well-known"
+    surgeignore:
+      dest: "#{build}/.surgeignore"
   delete:
     src: [
       build

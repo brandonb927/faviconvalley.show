@@ -16,6 +16,8 @@ baseConfig =
   copy:
     letsencrypt:
       src: "#{path.resolve(base, ".well-known")}/**/*"
+    surgeignore:
+      src: path.resolve(base, ".surgeignore")
   styles:
     autoprefixer:
       cascade: true
