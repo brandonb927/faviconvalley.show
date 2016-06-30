@@ -1,0 +1,17 @@
+{% if include.style %}
+{% assign style = include.style %}
+{% else %}
+{% assign style = 'dark' %}
+{% endif %}
+
+{% if style == 'large' %}
+{% assign height = '330px' %}
+{% else if ['medium-light', 'medium-dark'] contains style %}
+{% assign height = '94px' %}
+{% else if ['light', 'dark'] contains style %}
+{% assign height = '36px' %}
+{% else %}
+{% assign height = 0 %}
+{% endif %}
+
+<iframe frameborder='0' height='{{height}}' scrolling='no' seamless src='https://simplecast.com/e/{{include.id}}?style={{style}}' width='100%'></iframe>

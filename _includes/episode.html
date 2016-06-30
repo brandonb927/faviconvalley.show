@@ -5,7 +5,7 @@
 {% assign episode = page %}
 {% endif %}
 
-{% capture audio_url %}{{ episode.episode_id | prepend: 'https://audio.simplecast.fm/' | append: '.mp3' }}{% endcapture %}
+{% capture audio_url %}{{ episode.episode_id | prepend: 'https://audio.simplecast.com/' | append: '.mp3' }}{% endcapture %}
 
 <article class="posts-feed-item" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
   <h2 class="post-title" itemprop="name headline">
@@ -38,7 +38,7 @@
   <div class="post-precontent">
     {% if episode.episode_id and hide_episode_details != true %}
       <div class="post-media">
-        <iframe src="https://simplecast.fm/e/{{ episode.episode_id }}?style=dark" height="36px" width="100%" frameborder="0" scrolling="no" seamless></iframe>
+        {% include player.html id=episode.episode_id style=episode.player_style %}
       </div>
     {% endif %}
 
