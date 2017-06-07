@@ -10,11 +10,9 @@
 
 @media (max-width: @grid-breakpoint-medium-max) { // Everything up to desktop
   body {
-    width: 90%
   }
 
   .site-container {
-    width: 92%;
     margin-top: 4rem;
     margin-bottom: 4rem;
   }
@@ -22,7 +20,7 @@
   .site-content {
     // Fix long links breaking out of boxes
     word-break: break-word;
-    hyphens:    auto;
+    hyphens: auto;
   }
 
   .form {
@@ -32,6 +30,10 @@
 }
 
 @media (max-width: @grid-breakpoint-small-max) { // iPhone size
+
+  body {
+    flex-direction: column;
+  }
 
   p {
     margin-bottom: 3rem;
@@ -47,8 +49,9 @@
   }
 
   .site-header {
-    padding-top: 4rem;
-    padding-bottom: 2rem;
+    width: 100%;
+    padding-right: 2rem;
+    text-align: center;
   }
 
   .site-header-title {
@@ -56,17 +59,13 @@
     margin-bottom: 2rem;
 
     h1 {
-      font-size: 2.6rem;
+      font-size: 4.8rem;
     }
   }
 
   .site-header-avatar-img {
     height: 12.8rem;
     width: 12.8rem;
-  }
-
-  .site-header-description {
-    width: 80%;
   }
 
   .site-content {
@@ -89,8 +88,6 @@
 
   .post-meta-left,
   .post-meta-right {
-    float: none;
-
     p {
       margin-bottom: 1rem;
     }

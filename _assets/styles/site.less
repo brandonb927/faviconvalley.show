@@ -14,55 +14,48 @@
 
 
 .site-header,
-.site-content,
-.site-footer {
+.site-content {
+  padding: 2rem;
   background: @white;
-  border-right: solid 1px @gray-lightest;
-  border-left: solid 1px @gray-lightest;
 }
 
 // Main styles
 .site-header {
-  padding: 6rem 0;
-  text-align: center;
+  width: 30%;
+  padding-right: 8rem;
 
   h1 {
     font-size: 6rem;
+    line-height: .9;
   }
 }
 
 // Navigation
 .site-header-nav {
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
 
-    margin-top: 6rem;
-    margin-bottom: 0;
+  ul {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     margin-left: 0;
+    margin-right: 0;
     padding: 0;
   }
 
   li {
     list-style-type: none;
+
+    a {
+      width: 100%;
+      display: inline-block;
+      padding: 1rem;
+    }
+
+    a:hover {
+      text-decoration: none;
+      background: @gray-lighter;
+    }
   }
 
-  a {
-    display: inline-block;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    padding: 1rem;
-  }
-
-  a:hover {
-    text-decoration: none;
-    background: @gray-lighter;
-  }
-}
-
-.site-header-subscribe {
-  padding: 6rem 2rem 0;
 }
 
 .site-header-avatar {
@@ -70,8 +63,8 @@
 }
 
 .site-header-avatar-img {
-  height: 19.6rem;
   width: 19.6rem;
+  height: auto;
   border-radius: 50%;
   box-shadow: 0 0.2rem 1.2rem rgba(0,0,0,.1);
 }
@@ -97,57 +90,12 @@
 
 .site-header-description {
   color: @black;
-  width: 60%;
-  margin: 0 auto;
 }
 
 // Content area
 .site-content {
-  padding-top: 6rem;
-  padding-right: 8rem;
-  padding-bottom: 4rem;
-  padding-left: 8rem;
-}
-
-.site-footer {
-  padding-top: 2rem;
-  text-align: center;
-}
-
-.site-footer-inner {
+  width: 70%;
   padding-top: 4rem;
-  padding-right: 0;
-  padding-bottom: 6rem;
-  padding-left: 0;
-
-  p {
-    margin: 0;
-  }
-}
-
-.site-footer-social {
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    margin: 0;
-    padding: 0;
-  }
-
-  li {
-    list-style-type: none;
-  }
-
-  a {
-    display: inline-block;
-    padding: 1rem;
-  }
-
-  a:hover {
-    text-decoration: none;
-    background: @gray-lighter;
-  }
 }
 
 // Feed posts
@@ -157,9 +105,9 @@
 
 .posts-feed-item {
   padding-top: 6rem;
-  padding-right: 0;
   padding-bottom: 6rem;
   padding-left: 0;
+  padding-right: 0;
 
   &:first-child {
     padding-top: 0;
@@ -169,9 +117,9 @@
 // Pagination
 .posts-pagination {
   margin-top: 8rem;
-  margin-right: 0;
   margin-bottom: 2rem;
   margin-left: 0;
+  margin-right: 0;
 
   ul {
     margin: 0;
@@ -245,12 +193,19 @@
 .post-content {
   margin-bottom: 4rem;
 
-  figure,
+  figure {
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: center;
+  }
+
   .iframe-gmap {
     margin-top: 6rem;
-    margin-right: -8rem;
     margin-bottom: 6rem;
     margin-left: -8rem;
+    margin-right: -8rem;
     text-align: center;
   }
 
@@ -317,9 +272,6 @@
   opacity: 1;
   transition: opacity .3s;
 }
-
-// Mailchimp form - ugh hack...
-#mc_embed_signup { padding: 4rem 0 !important; }
 
 // Responsive-related classes
 @import 'responsive.less';
