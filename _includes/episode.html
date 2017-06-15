@@ -12,7 +12,7 @@
     {% if hide_link_to_episode == true %}
       {{ episode.title }}
     {% else %}
-    <a href="{{ episode.url | prepend: site.baseurl | prepend: site.url }}">
+    <a href="{{ episode.url | absolute_url }}">
       {{ episode.title }}
     </a>
     {% endif %}
@@ -26,7 +26,7 @@
     <p class="post-meta-right">
       <a href="https://twitter.com/share"
           class="twitter-share-button"{count}
-          data-url="{{ episode.url | prepend: site.baseurl | prepend: site.url }}"
+          data-url="{{ episode.url | absolute_url }}"
           data-text="{{ episode.title | truncate: 90 | xml_escape }}"
           data-via="faviconvalley"
           data-size="large"
@@ -46,13 +46,13 @@
       {% for sponsor in sponsors %}
         {% for ep_sponsor in episode.sponsors %}
           {% if ep_sponsor == sponsor.type %}
-            <div class="post-sponsor">
-              <a href="{{ sponsor.url }}" target="_blank">
+            <a href="{{ sponsor.url }}" class="post-sponsor-link" target="_blank">
+              <div class="post-sponsor-inner">
                 <h3 class="post-sponsor-title">{{ sponsor.title }}</h3>
                 <img src="{{ sponsor.type | prepend: '/sponsors/' | prepend: site.assets_images | append: '.png' }}" class="post-sponsor-image" />
-              </a>
-              <span class="post-sponsor-attribution">This episode brought to you by</span>
-            </div>
+                <span class="post-sponsor-attribution">This episode brought to you by</span>
+              </div>
+            </a>
           {% endif %}
         {% endfor %}
       {% endfor %}

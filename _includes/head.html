@@ -26,7 +26,7 @@
 
 {% include favicons.html %}
 
-<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+<link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
 <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="{{ site.episodes_rss_feed }}">
 
 <link href="/assets/styles/site.css" rel="stylesheet" inline>

@@ -1,5 +1,5 @@
 ---
-layout: base
+layout: page
 title: Interview Preparation
 
 include_in_nav: false

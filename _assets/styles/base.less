@@ -23,6 +23,7 @@ body {
   display: flex;
   flex-flow: row wrap;
   min-height: 100vh;
+  background-color: @white;
 
   font-size: @base-rem-unit;
   line-height: 1.6;
@@ -37,7 +38,7 @@ body {
 // Give all links a nice transition
 a {
   color: @gray-darkest;
-  text-decoration: none;
+  // text-decoration: none;
   transition: all .2s;
 
   &.no-underline {
@@ -47,7 +48,7 @@ a {
 
 a:hover,
 a:active {
-  color: @gray-darker;
+  color: @black;
   text-decoration: none;
 }
 
@@ -90,11 +91,6 @@ h5 {
 
 p {
   margin: 0 0 2rem;
-}
-
-ul li,
-ol li {
-  // padding-left: 4rem;
 }
 
 blockquote {
