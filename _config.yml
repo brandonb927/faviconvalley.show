@@ -75,5 +75,5 @@ google_analytics:
   domain: faviconvalley.show
 
 # Extras
-gems:
+plugins:
   - jekyll-sitemap
