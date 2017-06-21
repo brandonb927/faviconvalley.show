@@ -5,13 +5,10 @@ import gulp from 'gulp'
 import awspublish from 'gulp-awspublish'
 import duration from 'gulp-duration'
 import runSequence from 'run-sequence'
-import prodConfig from '../config/prod'
-
-let imagesConfig = prodConfig.images
-let deployConfig = prodConfig.deploy
+import configProd from '../config/prod'
 
 let awsConfig = JSON.parse(fs.readFileSync(`${process.env.HOME}/.aws.json`))
-awsConfig.bucket = deployConfig.s3.bucket
+awsConfig.bucket = configProd.deploy.s3.bucket
 awsConfig.region = 'us-east-1'
 
 let s3Config = {
@@ -29,9 +26,13 @@ let s3Config = {
 // Upload a published build to the interwebs
 gulp.task('surge-deploy', callback =>
   cp
-    .spawn('surge', [deployConfig.src, `--domain=${deployConfig.url}`], {
-      stdio: 'inherit'
-    })
+    .spawn(
+      'surge',
+      [configProd.deploy.src, `--domain=${configProd.deploy.url}`],
+      {
+        stdio: 'inherit'
+      }
+    )
     .on('close', callback)
 )
 
@@ -39,14 +40,14 @@ gulp.task('s3-deploy', () => {
   let publisher = awspublish.create(s3Config)
 
   return gulp
-    .src(imagesConfig.src)
+    .src(configProd.copy.images.src)
     .pipe(publisher.publish(s3Config.headers))
     .pipe(publisher.cache())
     .pipe(duration('Uploading images to S3'))
     .pipe(awspublish.reporter())
 })
 
-gulp.task('deploy', (callback) => {
+gulp.task('deploy', callback => {
   if (argv.dryrun) {
     return runSequence(
       'build:prod',

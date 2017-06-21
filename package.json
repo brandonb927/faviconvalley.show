@@ -44,11 +44,11 @@
   },
   "lint-staged": {
     "_assets/scripts/*.js": [
-      "prettier-standard-formatter",
+      "prettier-standard",
       "git add"
     ],
     "gulp_tasks/**/*.js": [
-      "prettier-standard-formatter",
+      "prettier-standard",
       "git add"
     ]
   },
