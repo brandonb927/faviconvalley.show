@@ -3,7 +3,6 @@ import { argv } from 'yargs'
 import cp from 'child_process'
 import gulp from 'gulp'
 import awspublish from 'gulp-awspublish'
-import duration from 'gulp-duration'
 import runSequence from 'run-sequence'
 import configProd from '../config/prod'
 
@@ -43,7 +42,6 @@ gulp.task('s3-deploy', () => {
     .src(configProd.copy.images.src)
     .pipe(publisher.publish(s3Config.headers))
     .pipe(publisher.cache())
-    .pipe(duration('Uploading images to S3'))
     .pipe(awspublish.reporter())
 })
 

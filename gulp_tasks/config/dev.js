@@ -51,9 +51,7 @@ let baseDevConfig = {
     dest: `${buildAssets}/styles`
   },
   scripts: {
-    src: {
-      js: `${srcAssets}/scripts/*.js`
-    },
+    src: `${srcAssets}/scripts/*.js`,
     dest: `${buildAssets}/scripts`
   },
   copy: {

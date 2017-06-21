@@ -1,5 +1,4 @@
 import gulp from 'gulp'
-import duration from 'gulp-duration'
 import imagemin from 'gulp-imagemin'
 import minifycss from 'gulp-minify-css'
 import minifyHTML from 'gulp-minify-html'
@@ -15,7 +14,6 @@ gulp.task('optimize:images', () =>
     .src(configProd.optimize.images.src)
     .pipe(plumber({ errorHandler }))
     .pipe(imagemin(configProd.optimize.images.options))
-    .pipe(duration('Optimizing images for production'))
     .pipe(gulp.dest(configProd.optimize.images.dest))
     .pipe(size(configProd.size))
 )
@@ -26,7 +24,6 @@ gulp.task('optimize:styles', () =>
     .src(configProd.optimize.styles.src)
     .pipe(plumber({ errorHandler }))
     .pipe(minifycss(configProd.optimize.styles.options))
-    .pipe(duration('Optimizing and minifying CSS for production'))
     .pipe(gulp.dest(configProd.optimize.styles.dest))
     .pipe(size(configProd.size))
 )
@@ -37,7 +34,6 @@ gulp.task('optimize:scripts', () =>
     .src(configProd.optimize.scripts.src)
     .pipe(plumber({ errorHandler }))
     .pipe(uglify(configProd.optimize.scripts.options))
-    .pipe(duration('Optimizing, minifying and minifying JS for production'))
     .pipe(gulp.dest(configProd.optimize.scripts.dest))
     .pipe(size(configProd.size))
 )
@@ -48,7 +44,6 @@ gulp.task('optimize:html', () =>
     .src(configProd.optimize.html.src)
     .pipe(plumber({ errorHandler }))
     .pipe(minifyHTML(configProd.optimize.html.options))
-    .pipe(duration('Optimizing and minifying HTML for production'))
     .pipe(gulp.dest(configProd.optimize.html.dest))
     .pipe(size(configProd.size))
 )
