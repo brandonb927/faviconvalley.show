@@ -40,7 +40,7 @@
   "scripts": {
     "start": "gulp",
     "deploy": "gulp deploy",
-    "precommit": "npm run test && lint-staged"
+    "precommit": "lint-staged"
   },
   "lint-staged": {
     "src/js/**/*.js": [
