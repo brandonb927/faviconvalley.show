@@ -29,7 +29,7 @@ assets_scripts: /assets/scripts
 assets_styles: /assets/styles
 
 # Episodes RSS feed
-episodes_rss_feed: http://simplecast.com/podcasts/1442/rss
+episodes_rss_feed: https://rss.simplecast.com/podcasts/1442/rss
 itunes_url: https://itunes.apple.com/ca/podcast/favicon-valley/id1051186842
 
 # Writing
