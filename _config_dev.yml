@@ -19,7 +19,7 @@ exclude: [
   'README.md',
   'Gulpfile.js',
   'package.json',
-  'coffeelint.json',
+  'package-lock.json',
   'Gemfile',
   'Gemfile.lock',
   'gulp_tasks',
