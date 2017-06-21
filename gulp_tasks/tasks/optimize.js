@@ -6,54 +6,51 @@ import minifyHTML from 'gulp-minify-html'
 import plumber from 'gulp-plumber'
 import size from 'gulp-size'
 import uglify from 'gulp-uglify'
-import {
-  optimize as config,
-  size as sizeConfig
-} from '../config/prod'
+import configProd from '../config/prod'
 import errorHandler from '../utils/errorHandler'
 
 // Optimize image assets
 gulp.task('optimize:images', () =>
   gulp
-    .src(config.images.src)
+    .src(configProd.optimize.images.src)
     .pipe(plumber({ errorHandler }))
-    .pipe(imagemin(config.images.options))
+    .pipe(imagemin(configProd.optimize.images.options))
     .pipe(duration('Optimizing images for production'))
-    .pipe(gulp.dest(config.images.dest))
-    .pipe(size(sizeConfig))
+    .pipe(gulp.dest(configProd.optimize.images.dest))
+    .pipe(size(configProd.size))
 )
 
 // Minify CSS styles
 gulp.task('optimize:styles', () =>
   gulp
-    .src(config.styles.src)
+    .src(configProd.optimize.styles.src)
     .pipe(plumber({ errorHandler }))
-    .pipe(minifycss(config.styles.options))
+    .pipe(minifycss(configProd.optimize.styles.options))
     .pipe(duration('Optimizing and minifying CSS for production'))
-    .pipe(gulp.dest(config.styles.dest))
-    .pipe(size(sizeConfig))
+    .pipe(gulp.dest(configProd.optimize.styles.dest))
+    .pipe(size(configProd.size))
 )
 
 // Optimize, minify and uglify JS
 gulp.task('optimize:scripts', () =>
   gulp
-    .src(config.scripts.src)
+    .src(configProd.optimize.scripts.src)
     .pipe(plumber({ errorHandler }))
-    .pipe(uglify(config.scripts.options))
+    .pipe(uglify(configProd.optimize.scripts.options))
     .pipe(duration('Optimizing, minifying and minifying JS for production'))
-    .pipe(gulp.dest(config.scripts.dest))
-    .pipe(size(sizeConfig))
+    .pipe(gulp.dest(configProd.optimize.scripts.dest))
+    .pipe(size(configProd.size))
 )
 
 // Optimize and minify HTML
 gulp.task('optimize:html', () =>
   gulp
-    .src(config.html.src)
+    .src(configProd.optimize.html.src)
     .pipe(plumber({ errorHandler }))
-    .pipe(minifyHTML(config.html.options))
+    .pipe(minifyHTML(configProd.optimize.html.options))
     .pipe(duration('Optimizing and minifying HTML for production'))
-    .pipe(gulp.dest(config.html.dest))
-    .pipe(size(sizeConfig))
+    .pipe(gulp.dest(configProd.optimize.html.dest))
+    .pipe(size(configProd.size))
 )
 
 gulp.task('optimize', [

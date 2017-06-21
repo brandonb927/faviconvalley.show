@@ -38,6 +38,8 @@
   },
   "dependencies": {},
   "scripts": {
+    "start": "gulp",
+    "deploy": "gulp deploy",
     "precommit": "npm run test && lint-staged"
   },
   "lint-staged": {

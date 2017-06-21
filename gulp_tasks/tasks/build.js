@@ -20,14 +20,14 @@ gulp.task('build:dev', (callback) => {
 gulp.task('build:prod', (callback) => {
   runSequence(
     'delete:prod',
-    // 'jekyll-build:prod',
-    // [
-    //   'styles:prod',
-    //   'scripts:prod',
-    //   'copy:images:prod',
-    //   'copy:surgeignore:prod',
-    //   'copy:letsencrypt:prod'
-    // ],
+    'jekyll-build:prod',
+    [
+      'styles:prod',
+      'scripts:prod',
+      'copy:images:prod',
+      'copy:surgeignore:prod',
+      'copy:letsencrypt:prod'
+    ],
     callback
   )
 })
