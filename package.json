@@ -1,20 +1,20 @@
 {
   "name": "faviconvalley.show",
   "private": true,
+  "version": "0.0.0",
   "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-preset-env": "^1.5.2",
+    "babel-preset-es2015": "^6.24.1",
     "browser-sync": "^2.18.12",
-    "coffee-script": "^1.12.6",
-    "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-awspublish": "^3.3.0",
-    "gulp-coffee": "^2.3.4",
     "gulp-concat-util": "^0.5.5",
     "gulp-cssmin": "^0.2.0",
     "gulp-duration": "0.0.0",
     "gulp-html-replace": "^1.6.2",
     "gulp-imagemin": "^3.3.0",
-    "gulp-inline-source": "^3.1.0",
     "gulp-less": "^3.3.0",
     "gulp-minify-css": "^1.2.4",
     "gulp-minify-html": "^1.0.6",
@@ -26,10 +26,46 @@
     "gulp-sourcemaps": "^2.6.0",
     "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.8",
+    "husky": "^0.13.4",
+    "lint-staged": "^4.0.0",
     "lodash": "^4.17.4",
+    "prettier-standard": "^5.1.0",
     "require-dir": "^0.3.2",
+    "rimraf": "^2.6.1",
     "run-sequence": "^1.2.2",
+    "standard": "^10.0.2",
     "yargs": "^8.0.2"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "scripts": {
+    "precommit": "npm run test && lint-staged"
+  },
+  "lint-staged": {
+    "src/js/**/*.js": [
+      "prettier-standard-formatter",
+      "git add"
+    ]
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "browsers": [
+              "last 2 versions",
+              "safari >= 9"
+            ]
+          }
+        }
+      ],
+      [
+        "es2015",
+        {
+          "modules": false
+        }
+      ]
+    ],
+    "plugins": []
+  }
 }
