@@ -1,17 +1,10 @@
 <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
 <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
 
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="ClearType" content="true">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
-
 <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.meta_description }}{% endif %}">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="dns-prefetch" href="//ajax.googleapis.com">
 {% if site.google_analytics.id %}
 <link rel="dns-prefetch" href="//www.google-analytics.com">
 {% endif %}
@@ -33,19 +26,5 @@
 
 {% include google_analytics.html %}
 
-<!-- Webfont loading -->
-<script>
-  WebFontConfig = {
-    google: {
-     families: ['Oxygen:400,300,700', 'Lobster Two:400,400italic,700,700italic', 'Delius Swash Caps']
-    }
-  };
-  (function(d) {
-    var wf = d.createElement('script'), s = d.scripts[0];
-    wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js';
-    wf.async = true;
-    s.parentNode.insertBefore(wf, s);
-  })(document);
-</script>
-
+<!-- Twitter widget -->
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
