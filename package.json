@@ -43,7 +43,11 @@
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "src/js/**/*.js": [
+    "_assets/scripts/*.js": [
+      "prettier-standard-formatter",
+      "git add"
+    ],
+    "gulp_tasks/**/*.js": [
       "prettier-standard-formatter",
       "git add"
     ]
